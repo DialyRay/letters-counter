@@ -1,16 +1,13 @@
-function counter(text) {
-    text = text.split( )
-    let count = 0;
-    for (let i = 0; i < text.length; i++) {
-        if(!obj[i]) {
-            obj[i] = 1
-
-        }
-        else {
-            obj[i] = obj[1] + 1;
+let fs = require('fs');
+function countLetters(file) {
+    let text = fs.readFileSync(file, 'utf8').toLowerCase();
+    let letterCounts = {};
+    for (let char of text) {
+        if (/[a-яё]/.test(char)) {
+        letterCounts[char] = (letterCounts[char] || 0) + 1;
         }
     }
-    return obj[a];
-
+     let result = Object.entries(letterCounts)
+  console.log(result);
 }
-counter('aaabbb'); 
+countLetters('input.txt');
